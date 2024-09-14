@@ -16,6 +16,8 @@
 		7475EE8E2C95B5BD00C66D4F /* RadioSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE8D2C95B5BD00C66D4F /* RadioSnapTests.swift */; };
 		7475EE982C95B5BD00C66D4F /* RadioSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE972C95B5BD00C66D4F /* RadioSnapUITests.swift */; };
 		7475EE9A2C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */; };
+		7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */; };
+		7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEAC2C96197D00C66D4F /* StreamSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7475EE932C95B5BD00C66D4F /* RadioSnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioSnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7475EE972C95B5BD00C66D4F /* RadioSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapUITests.swift; sourceTree = "<group>"; };
 		7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStreamingFunctions.swift; sourceTree = "<group>"; };
+		7475EEAC2C96197D00C66D4F /* StreamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		7475EE752C95B5BC00C66D4F /* RadioSnap */ = {
 			isa = PBXGroup;
 			children = (
+				7475EEA92C96193800C66D4F /* models */,
+				7475EEA62C9618E000C66D4F /* utils */,
 				7475EE762C95B5BC00C66D4F /* AppDelegate.swift */,
 				7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */,
 				7475EE7A2C95B5BC00C66D4F /* ViewController.swift */,
@@ -125,6 +131,22 @@
 				7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */,
 			);
 			path = RadioSnapUITests;
+			sourceTree = "<group>";
+		};
+		7475EEA62C9618E000C66D4F /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		7475EEA92C96193800C66D4F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				7475EEAC2C96197D00C66D4F /* StreamSession.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */,
+				7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */,
 				7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */,
+				7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */,
 				7475EE792C95B5BC00C66D4F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

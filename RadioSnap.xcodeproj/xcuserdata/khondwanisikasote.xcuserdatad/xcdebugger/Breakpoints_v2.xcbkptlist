@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "364408A9-C23D-4146-8333-9FB7836FCD45"
-            shouldBeEnabled = "Yes"
+            uuid = "6EC34372-974D-46E4-970F-C2F04FFB77FF"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RadioSnapTests/RadioSnapTests.swift"
+            filePath = "RadioSnap/utils/RadioStreamingFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "findStreamingDate(streamingDate:existingStreams:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "compareDatesToSeeIfMergeIsReuired(newStartStreamSession:newEndStreamSession:existingStreamSessions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FDD808D1-C346-496B-9511-B9FB39FFE08D"
-            shouldBeEnabled = "No"
+            uuid = "7579AE1E-CF2C-412E-97DC-BFCFA5A32840"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RadioSnapTests/RadioSnapTests.swift"
+            filePath = "RadioSnap/utils/RadioStreamingFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "findStreamingDate(streamingDate:existingStreams:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "compareDatesToSeeIfMergeIsReuired(newStartStreamSession:newEndStreamSession:existingStreamSessions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F19B9619-DE46-4732-BD44-9ABA8CD86A91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RadioSnap/utils/RadioStreamingFunctions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "compareDatesToSeeIfMergeIsReuired(newStartStreamSession:newEndStreamSession:existingStreamSessions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

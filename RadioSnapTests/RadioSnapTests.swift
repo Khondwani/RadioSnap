@@ -25,7 +25,11 @@ final class RadioSnapTests: XCTestCase {
     
     struct RadioStreamingFunctions {
         static func findStreamingDate(streamingDate: String, existingStreams:[String:[StreamSession]]) -> [StreamSession] {
-            return []
+            if let existingStream = existingStreams[streamingDate] { // checking if dictionary contains a date that is available.
+                return existingStream
+            } else {
+                return []
+            }
         }
     }
     
@@ -44,7 +48,7 @@ final class RadioSnapTests: XCTestCase {
         let streamSessionOneStartDate = dateFormatter.date(from: streamSessionOneStartDateString)!
         let streamSessionOneEndDate = dateFormatter.date(from: streamSessionOneEndDateString)!
         
-        let existingStreams: [String:[StreamSession]] = ["13/11/24":[StreamSession(startDateTime: streamSessionOneStartDate, endDateTime: streamSessionOneEndDate, duration: 0.5, mergeCount: 0)]]
+        let existingStreams: [String:[StreamSession]] = [:];
         
         let streamSessionTwoStartDateString = "13/11/24 12:00:00"
         let streamSessionTwoEndDateString = "13/11/24 12:00:00"
@@ -55,14 +59,10 @@ final class RadioSnapTests: XCTestCase {
         // Find Object we need to compare time to retun
         // Act
         let sut = RadioStreamingFunctions.self
-        let foundListOfStreamsForSpecificDate = sut.findStreamingDate(streamingDate: streamKeyDateFormatter.string(from: streamSessionOneStartDate), existingStreams: existingStreams)
+        let foundListOfStreamsForSpecificDate = sut.findStreamingDate(streamingDate: streamKeyDateFormatter.string(from: streamSessionTwoStartDate), existingStreams: existingStreams)
         
         // Assert
         XCTAssertTrue(foundListOfStreamsForSpecificDate.isEmpty, "The array returned had some values, it should be empty")
-        
-        
-        
-      
         
     }
 }

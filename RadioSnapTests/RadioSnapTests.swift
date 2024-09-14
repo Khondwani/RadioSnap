@@ -145,8 +145,8 @@ final class RadioSnapTests: XCTestCase {
         
         // Assert
         XCTAssertEqual(actual.0, expect.0, "Int value should be 0 but given \(actual.0)" )
-        XCTAssertEqual(actual.1, expect.1, "Bool value should be TRUE but given \(actual.1)" )
-        XCTAssertEqual(actual.2, expect.2, "Bool value should be TRUE but given \(actual.2)" )
+        XCTAssertEqual(actual.1, expect.1, "Bool value should be FALSE but given \(actual.1)" )
+        XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
         
     }
     func testCompareFunction_WhenExistingStreamArrayHasAMergeBasedOnStartAndEndDateBeingTheSame_ShouldReturnATupleWithIndex0AndFalseAndFalse() {
@@ -168,8 +168,8 @@ final class RadioSnapTests: XCTestCase {
         
         // Assert
         XCTAssertEqual(actual.0, expect.0, "Int value should be 0 but given \(actual.0)" )
-        XCTAssertEqual(actual.1, expect.1, "Bool value should be TRUE but given \(actual.1)" )
-        XCTAssertEqual(actual.2, expect.2, "Bool value should be TRUE but given \(actual.2)" )
+        XCTAssertEqual(actual.1, expect.1, "Bool value should be FALSE but given \(actual.1)" )
+        XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
         
     }
 }

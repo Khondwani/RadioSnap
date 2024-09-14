@@ -9,28 +9,60 @@ import XCTest
 @testable import RadioSnap
 
 final class RadioSnapTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    class StreamSession {
+        var startDateTime: Date
+        var endDateTime: Date
+        var duration: Double // This is time in hours
+        var mergeCount: Int
+        
+        init(startDateTime: Date, endDateTime: Date, duration: Double, mergeCount: Int) {
+            self.startDateTime = startDateTime
+            self.endDateTime = endDateTime
+            self.duration = duration
+            self.mergeCount = mergeCount
         }
     }
-
+    
+//    struct RadioStreamingFunctions {
+//        static func findStreamingDate(streamingDate: String) {
+//            
+//        }
+//    }
+    
+    func testMergeTimesFunctionOnSameDay_WhenTimeIsNotInRange_ShouldReturnNoDateTimeObj() {
+        // Arrange RED-GREEN-REFACTOR
+        // just for easier ways to manipulate Dates
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy HH:mm:ss" 
+        
+        let streamKeyDateFormatter = DateFormatter()
+        streamKeyDateFormatter.dateFormat = "dd/MM/yy"
+        
+        let streamSessionOneStartDateString = "13/11/24 12:30:00"
+        let streamSessionOneEndDateString = "13/11/24 13:00:00"
+        
+        let streamSessionOneStartDate = dateFormatter.date(from: streamSessionOneStartDateString)!
+        let streamSessionOneEndDate = dateFormatter.date(from: streamSessionOneEndDateString)!
+        
+        let existingStreams: [String:[StreamSession]] = ["13/11/24":[StreamSession(startDateTime: streamSessionOneStartDate, endDateTime: streamSessionOneEndDate, duration: 0.5, mergeCount: 0)]]
+        
+        let streamSessionTwoStartDateString = "13/11/24 12:00:00"
+        let streamSessionTwoEndDateString = "13/11/24 12:00:00"
+        
+        let streamSessionTwoStartDate = dateFormatter.date(from: streamSessionTwoStartDateString)!
+        let streamSessionTwoEndDate = dateFormatter.date(from: streamSessionTwoEndDateString)!
+        
+        // Find Object we need to compare time to retun
+        let sut = RadioStreamingFunctions.self
+        sut.findStreamingDate(streamingDate: streamingSessionTwo.)
+        
+        // Assert
+        
+        
+        let startTime =
+        let sut = Merger();
+        // Act
+        sut.mergeTime(startTime:, endTime: , existingStreams: );
+        
+    }
 }

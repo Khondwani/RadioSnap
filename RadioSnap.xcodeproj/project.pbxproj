@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE762C95B5BC00C66D4F /* AppDelegate.swift */; };
+		7475EE792C95B5BC00C66D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */; };
+		7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE7A2C95B5BC00C66D4F /* ViewController.swift */; };
+		7475EE7E2C95B5BC00C66D4F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE7D2C95B5BC00C66D4F /* Base */; };
+		7475EE802C95B5BD00C66D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */; };
+		7475EE832C95B5BD00C66D4F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE822C95B5BD00C66D4F /* Base */; };
+		7475EE8E2C95B5BD00C66D4F /* RadioSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE8D2C95B5BD00C66D4F /* RadioSnapTests.swift */; };
+		7475EE982C95B5BD00C66D4F /* RadioSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE972C95B5BD00C66D4F /* RadioSnapUITests.swift */; };
+		7475EE9A2C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7475EE8A2C95B5BD00C66D4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7475EE6B2C95B5BC00C66D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7475EE722C95B5BC00C66D4F;
+			remoteInfo = RadioSnap;
+		};
+		7475EE942C95B5BD00C66D4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7475EE6B2C95B5BC00C66D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7475EE722C95B5BC00C66D4F;
+			remoteInfo = RadioSnap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7475EE732C95B5BC00C66D4F /* RadioSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7475EE762C95B5BC00C66D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7475EE7A2C95B5BC00C66D4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7475EE7D2C95B5BC00C66D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7475EE822C95B5BD00C66D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7475EE842C95B5BD00C66D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7475EE892C95B5BD00C66D4F /* RadioSnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioSnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7475EE8D2C95B5BD00C66D4F /* RadioSnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapTests.swift; sourceTree = "<group>"; };
+		7475EE932C95B5BD00C66D4F /* RadioSnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioSnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7475EE972C95B5BD00C66D4F /* RadioSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapUITests.swift; sourceTree = "<group>"; };
+		7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7475EE702C95B5BC00C66D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE862C95B5BD00C66D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE902C95B5BD00C66D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7475EE6A2C95B5BC00C66D4F = {
+			isa = PBXGroup;
+			children = (
+				7475EE752C95B5BC00C66D4F /* RadioSnap */,
+				7475EE8C2C95B5BD00C66D4F /* RadioSnapTests */,
+				7475EE962C95B5BD00C66D4F /* RadioSnapUITests */,
+				7475EE742C95B5BC00C66D4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7475EE742C95B5BC00C66D4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7475EE732C95B5BC00C66D4F /* RadioSnap.app */,
+				7475EE892C95B5BD00C66D4F /* RadioSnapTests.xctest */,
+				7475EE932C95B5BD00C66D4F /* RadioSnapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7475EE752C95B5BC00C66D4F /* RadioSnap */ = {
+			isa = PBXGroup;
+			children = (
+				7475EE762C95B5BC00C66D4F /* AppDelegate.swift */,
+				7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */,
+				7475EE7A2C95B5BC00C66D4F /* ViewController.swift */,
+				7475EE7C2C95B5BC00C66D4F /* Main.storyboard */,
+				7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */,
+				7475EE812C95B5BD00C66D4F /* LaunchScreen.storyboard */,
+				7475EE842C95B5BD00C66D4F /* Info.plist */,
+			);
+			path = RadioSnap;
+			sourceTree = "<group>";
+		};
+		7475EE8C2C95B5BD00C66D4F /* RadioSnapTests */ = {
+			isa = PBXGroup;
+			children = (
+				7475EE8D2C95B5BD00C66D4F /* RadioSnapTests.swift */,
+			);
+			path = RadioSnapTests;
+			sourceTree = "<group>";
+		};
+		7475EE962C95B5BD00C66D4F /* RadioSnapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7475EE972C95B5BD00C66D4F /* RadioSnapUITests.swift */,
+				7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */,
+			);
+			path = RadioSnapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7475EE722C95B5BC00C66D4F /* RadioSnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7475EE9D2C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnap" */;
+			buildPhases = (
+				7475EE6F2C95B5BC00C66D4F /* Sources */,
+				7475EE702C95B5BC00C66D4F /* Frameworks */,
+				7475EE712C95B5BC00C66D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RadioSnap;
+			productName = RadioSnap;
+			productReference = 7475EE732C95B5BC00C66D4F /* RadioSnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7475EE882C95B5BD00C66D4F /* RadioSnapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7475EEA02C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnapTests" */;
+			buildPhases = (
+				7475EE852C95B5BD00C66D4F /* Sources */,
+				7475EE862C95B5BD00C66D4F /* Frameworks */,
+				7475EE872C95B5BD00C66D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7475EE8B2C95B5BD00C66D4F /* PBXTargetDependency */,
+			);
+			name = RadioSnapTests;
+			productName = RadioSnapTests;
+			productReference = 7475EE892C95B5BD00C66D4F /* RadioSnapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7475EE922C95B5BD00C66D4F /* RadioSnapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7475EEA32C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnapUITests" */;
+			buildPhases = (
+				7475EE8F2C95B5BD00C66D4F /* Sources */,
+				7475EE902C95B5BD00C66D4F /* Frameworks */,
+				7475EE912C95B5BD00C66D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7475EE952C95B5BD00C66D4F /* PBXTargetDependency */,
+			);
+			name = RadioSnapUITests;
+			productName = RadioSnapUITests;
+			productReference = 7475EE932C95B5BD00C66D4F /* RadioSnapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7475EE6B2C95B5BC00C66D4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					7475EE722C95B5BC00C66D4F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					7475EE882C95B5BD00C66D4F = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 7475EE722C95B5BC00C66D4F;
+					};
+					7475EE922C95B5BD00C66D4F = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 7475EE722C95B5BC00C66D4F;
+					};
+				};
+			};
+			buildConfigurationList = 7475EE6E2C95B5BC00C66D4F /* Build configuration list for PBXProject "RadioSnap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7475EE6A2C95B5BC00C66D4F;
+			productRefGroup = 7475EE742C95B5BC00C66D4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7475EE722C95B5BC00C66D4F /* RadioSnap */,
+				7475EE882C95B5BD00C66D4F /* RadioSnapTests */,
+				7475EE922C95B5BD00C66D4F /* RadioSnapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7475EE712C95B5BC00C66D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7475EE802C95B5BD00C66D4F /* Assets.xcassets in Resources */,
+				7475EE832C95B5BD00C66D4F /* Base in Resources */,
+				7475EE7E2C95B5BC00C66D4F /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE872C95B5BD00C66D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE912C95B5BD00C66D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7475EE6F2C95B5BC00C66D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */,
+				7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */,
+				7475EE792C95B5BC00C66D4F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE852C95B5BD00C66D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7475EE8E2C95B5BD00C66D4F /* RadioSnapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475EE8F2C95B5BD00C66D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7475EE9A2C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift in Sources */,
+				7475EE982C95B5BD00C66D4F /* RadioSnapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7475EE8B2C95B5BD00C66D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7475EE722C95B5BC00C66D4F /* RadioSnap */;
+			targetProxy = 7475EE8A2C95B5BD00C66D4F /* PBXContainerItemProxy */;
+		};
+		7475EE952C95B5BD00C66D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7475EE722C95B5BC00C66D4F /* RadioSnap */;
+			targetProxy = 7475EE942C95B5BD00C66D4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7475EE7C2C95B5BC00C66D4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7475EE7D2C95B5BC00C66D4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7475EE812C95B5BD00C66D4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7475EE822C95B5BD00C66D4F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7475EE9B2C95B5BD00C66D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7475EE9C2C95B5BD00C66D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7475EE9E2C95B5BD00C66D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RadioSnap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7475EE9F2C95B5BD00C66D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RadioSnap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7475EEA12C95B5BD00C66D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RadioSnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RadioSnap";
+			};
+			name = Debug;
+		};
+		7475EEA22C95B5BD00C66D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RadioSnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RadioSnap";
+			};
+			name = Release;
+		};
+		7475EEA42C95B5BD00C66D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RadioSnap;
+			};
+			name = Debug;
+		};
+		7475EEA52C95B5BD00C66D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5B3DVRDCJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kactusit.RadioSnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RadioSnap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7475EE6E2C95B5BC00C66D4F /* Build configuration list for PBXProject "RadioSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7475EE9B2C95B5BD00C66D4F /* Debug */,
+				7475EE9C2C95B5BD00C66D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7475EE9D2C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7475EE9E2C95B5BD00C66D4F /* Debug */,
+				7475EE9F2C95B5BD00C66D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7475EEA02C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7475EEA12C95B5BD00C66D4F /* Debug */,
+				7475EEA22C95B5BD00C66D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7475EEA32C95B5BD00C66D4F /* Build configuration list for PBXNativeTarget "RadioSnapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7475EEA42C95B5BD00C66D4F /* Debug */,
+				7475EEA52C95B5BD00C66D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7475EE6B2C95B5BC00C66D4F /* Project object */;
+}

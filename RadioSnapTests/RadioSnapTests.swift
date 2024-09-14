@@ -23,13 +23,13 @@ final class RadioSnapTests: XCTestCase {
         }
     }
     
-//    struct RadioStreamingFunctions {
-//        static func findStreamingDate(streamingDate: String) {
-//            
-//        }
-//    }
+    struct RadioStreamingFunctions {
+        static func findStreamingDate(streamingDate: String, existingStreams:[String:[StreamSession]]) -> [StreamSession] {
+            return []
+        }
+    }
     
-    func testMergeTimesFunctionOnSameDay_WhenTimeIsNotInRange_ShouldReturnNoDateTimeObj() {
+    func testFindDate_WhenExistingStreamIsEmpty_ShouldReturnEmptyArray() {
         // Arrange RED-GREEN-REFACTOR
         // just for easier ways to manipulate Dates
         let dateFormatter = DateFormatter()
@@ -53,16 +53,16 @@ final class RadioSnapTests: XCTestCase {
         let streamSessionTwoEndDate = dateFormatter.date(from: streamSessionTwoEndDateString)!
         
         // Find Object we need to compare time to retun
+        // Act
         let sut = RadioStreamingFunctions.self
-        sut.findStreamingDate(streamingDate: streamingSessionTwo.)
+        let foundListOfStreamsForSpecificDate = sut.findStreamingDate(streamingDate: streamKeyDateFormatter.string(from: streamSessionOneStartDate), existingStreams: existingStreams)
         
         // Assert
+        XCTAssertTrue(foundListOfStreamsForSpecificDate.isEmpty, "The array returned had some values, it should be empty")
         
         
-        let startTime =
-        let sut = Merger();
-        // Act
-        sut.mergeTime(startTime:, endTime: , existingStreams: );
+        
+      
         
     }
 }

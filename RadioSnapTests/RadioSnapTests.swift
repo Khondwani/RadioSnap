@@ -159,7 +159,7 @@ final class RadioSnapTests: XCTestCase {
         let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 13:00:00")
         
         
-        let expect = (0,false,false) // Tells me at index 0 on that date we have a merge with the start date and end date changing.
+        let expect = (0,false,false)
         // Act
      
         let arrayOfStreamSessionForSpecificDate = RadioStreamingFunctions.findStreamingDate(streamingDate: RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStreamSessionStartDate), existingStreams: existingStreams)
@@ -170,6 +170,90 @@ final class RadioSnapTests: XCTestCase {
         XCTAssertEqual(actual.0, expect.0, "Int value should be 0 but given \(actual.0)" )
         XCTAssertEqual(actual.1, expect.1, "Bool value should be FALSE but given \(actual.1)" )
         XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
+        
+    }  
+    func testCompareFunction_WhenExistingStreamArrayHasAMergeBasedOnStartAndEndDateBeingTheSame_ShouldReturnATupleWithnIndexNegative1AndFalseAndFalse() {
+        // RED-GREEN-REFACTOR
+        
+        // Arrange
+        
+        //EXISTING DATE: START = 12:30 END = 13:00
+        let newStreamSessionStartDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 11:30:00")
+        let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00")
+        
+        
+        let expect = (-1,false,false) // Tells me it did not find a time to merge into so we just put it in the array.
+     
+        let arrayOfStreamSessionForSpecificDate = RadioStreamingFunctions.findStreamingDate(streamingDate: RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStreamSessionStartDate), existingStreams: existingStreams)
+        
+        let actual = RadioStreamingFunctions.compareDatesToSeeIfMergeIsReuired(newStartStreamSession: newStreamSessionStartDate, newEndStreamSession: newStreamSessionEndDate, existingStreamSessions: arrayOfStreamSessionForSpecificDate)
+        
+        // Assert
+        XCTAssertEqual(actual.0, expect.0, "Int value should be -1 but given \(actual.0)" )
+        XCTAssertEqual(actual.1, expect.1, "Bool value should be FALSE but given \(actual.1)" )
+        XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
+        
+    }
+    
+    func testCompareFunction_WhenExistingStreamArrayHasAMergeBasedOnStartAndEndDateBeingTheSame_ShouldReturnATupleWithnIndex1AndTrueAndFalse() {
+        // RED-GREEN-REFACTOR
+        
+        // Arrange
+        
+        //EXISTING DATE: START = 12:30 END = 13:00
+        let newStreamSessionStartDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 13:00:00")
+        let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:31:00")
+        
+        existingStreams["13/11/24"]?.append(StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:30:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 15:00:00"), duration: 0.5, mergeCount: 0))
+        
+        let expect = (1,true,false)
+     
+        let arrayOfStreamSessionForSpecificDate = RadioStreamingFunctions.findStreamingDate(streamingDate: RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStreamSessionStartDate), existingStreams: existingStreams)
+        
+        let actual = RadioStreamingFunctions.compareDatesToSeeIfMergeIsReuired(newStartStreamSession: newStreamSessionStartDate, newEndStreamSession: newStreamSessionEndDate, existingStreamSessions: arrayOfStreamSessionForSpecificDate)
+        
+        // Assert
+        XCTAssertEqual(actual.0, expect.0, "Int value should be 1 but given \(actual.0)" )
+        XCTAssertEqual(actual.1, expect.1, "Bool value should be TRUE but given \(actual.1)" )
+        XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
+        
+    }
+    
+    func testMergerFunction_WhenNewStreamStartDateIsOlderThanExistingStartDate_ShouldReturnNewMergedSessionWithDuration() {
+        
+        // RED-GREEN-REFACTOR
+        
+        // Arrange
+        //EXISTING DATE: START = 12:30 END = 13:00
+        let newStreamSessionStartDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00")
+        let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:40:00")
+        
+        
+        let expect = StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 1, mergeCount: 1) // tells me
+        // Find Object we need to compare time to retun
+        // Act
+     
+        let arrayOfStreamSessionForSpecificDate = RadioStreamingFunctions.findStreamingDate(streamingDate: RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStreamSessionStartDate), existingStreams: existingStreams)
+        
+        let performMerge = RadioStreamingFunctions.compareDatesToSeeIfMergeIsReuired(newStartStreamSession: newStreamSessionStartDate, newEndStreamSession: newStreamSessionEndDate, existingStreamSessions: arrayOfStreamSessionForSpecificDate)
+        
+        
+        // Assert
+//        XCTAssertEqual(actual.0, expect.0, "Int value should be 0 but given \(actual.0)" )
+//        XCTAssertEqual(actual.1, expect.1, "Bool value should be TRUE but given \(actual.1)" )
+//        XCTAssertEqual(actual.2, expect.2, "Bool value should be FALSE but given \(actual.2)" )
+    }
+    
+    func testGetDurationFunction_WhenAMergeOccursAndDurationChanges_ShouldReturnDurationValueInHours(){
+        // Arrange
+        let dateOne = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00")
+        let dateTwo = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:00:00")
+        // Act
+        
+        let actualDuration = RadioStreamingFunctions.getDurationBetweenDates(from: dateOne, and: dateTwo)
+        let expectedDuration = 2
+        
+        XCTAssertEqual(actualDuration, expectedDuration, "Duration value should be 2 but given \(actualDuration)" )
         
     }
 }

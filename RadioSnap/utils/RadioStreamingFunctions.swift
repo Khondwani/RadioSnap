@@ -32,7 +32,47 @@ class RadioStreamingFunctions {
         return dateFormatter.date(from: stringDate)!
     }
     
-    static func compareDatesToSeeIfMergeIsReuired(newStartStreamSession: Date, newEndStreamSession: Date, existingStreamSessions: [StreamSession]) -> (Int, Bool, Bool) { // ifFound, isStartTimeOlder, isEndTimeNewer
+    static func getDurationBetweenDates(from startDate: Date, and endDate: Date) -> Int {
+        let duration = Calendar.current.dateComponents([.second], from: startDate, to: endDate)
+        return duration.second!
+    }
+    
+    static func performMerge(from newStartDateTime: Date, and newEndDateTime: Date, with existingStreamSession: StreamSession, decision: (Int,Bool,Bool)) -> StreamSession {
+        if decision.1 == true && decision.2 == false { // we know startDateTime changes
+            
+            existingStreamSession.startDateTime = newStartDateTime
+            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
+            existingStreamSession.mergeCount += 1
+            
+            return existingStreamSession
+            
+        } else if decision.1 == false && decision.2 == true { //when endTime is the one that increases
+            existingStreamSession.endDateTime = newEndDateTime
+            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
+            existingStreamSession.mergeCount += 1
+            
+            return existingStreamSession
+        } else if decision.1 == true && decision.2 == true { // bigger start and end time
+            existingStreamSession.startDateTime = newStartDateTime
+            existingStreamSession.endDateTime = newEndDateTime
+            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
+            existingStreamSession.mergeCount += 1
+            return existingStreamSession
+        } else {
+            // The new times fall in between the times that already exist so it does count as an overlap and merge
+            existingStreamSession.mergeCount += 1
+            return existingStreamSession
+        }
+    }
+//    static func addToDictNewKeyAndNewStreamSession(currenDict: [String:[StreamSession]], newDictKey: String, newStreamSession: StreamSession) -> [String:[StreamSession]] {
+//        
+//        return [:]
+//    }
+//    
+//    static func addToStreamSessionArray() {
+//        
+//    }
+    static func compareDatesToSeeIfMergeIsReuired(newStartStreamSession: Date, newEndStreamSession: Date, existingStreamSessions: [StreamSession]) -> Merger { // ifFound, isStartTimeOlder, isEndTimeNewer
         // index means a time was found and we should return the found index.
         // we have two flags to let us know which time (start or end) are we changing to perform the merge
         
@@ -44,7 +84,7 @@ class RadioStreamingFunctions {
             // newEndSession = 14:00 existingEndDateTime = 14:00
             
             if newStartStreamSession == existingStreamSession.startDateTime && newEndStreamSession == existingStreamSession.endDateTime {
-                return (index,false,false) // no need for a merge same session but we record the time
+                return Merger(streamSession: index, startTimeMerge: false, endTimeMerge: false) // no need for a merge same session but we record the time
             }
             
             // FOR WHEN NEW STREAM SESSION DATES ARE IN BETWEEN EXISTING STREAM SESSIONS
@@ -53,7 +93,7 @@ class RadioStreamingFunctions {
             // newEndSession = 13:40 existingEndDateTime = 14:00
             
             if (newStartStreamSession > existingStreamSession.startDateTime && newStartStreamSession < existingStreamSession.endDateTime) && (newEndStreamSession > existingStreamSession.startDateTime && newEndStreamSession < existingStreamSession.endDateTime) {
-                return(index,false, false)
+                return Merger(streamSession: index, startTimeMerge: false, endTimeMerge: false)
             }
             // Check for when Start Time is older than existing stream startTime and endTime is newer than existing starttime and endTime is older than existingEndTime then we know we have a merge.
             
@@ -67,7 +107,7 @@ class RadioStreamingFunctions {
             // newEndSession = 14:00 existingEndDateTime = 14:00
             
             if newStartStreamSession < existingStreamSession.startDateTime && (newEndStreamSession > existingStreamSession.startDateTime && newEndStreamSession <= existingStreamSession.endDateTime) {
-                return(index, true, false)
+                return Merger(streamSession: index, startTimeMerge: true, endTimeMerge: false)
             }
             
             //END TIME IS BEING DELT WITH
@@ -80,7 +120,7 @@ class RadioStreamingFunctions {
             // newEndSession = 14:10 existingEndDateTime = 14:00
             
             if (newStartStreamSession >= existingStreamSession.startDateTime &&  newStartStreamSession < existingStreamSession.endDateTime) && newEndStreamSession > existingStreamSession.endDateTime {
-                return(index, false, true)
+                return Merger(streamSession: index, startTimeMerge: false, endTimeMerge: true)
             }
             
             // EXISITING STREAM SESSION FALLS UNDER THE NEW STREAM SESSION
@@ -89,11 +129,11 @@ class RadioStreamingFunctions {
             // newEndSession = 14:00 existingEndTime = 13:40
             
             if newStartStreamSession < existingStreamSession.startDateTime && newEndStreamSession > existingStreamSession.endDateTime {
-                return (index, true, true)
+                return  Merger(streamSession: index, startTimeMerge: true, endTimeMerge: true)
             }
         }
         
-        return (-1,false,false)
+        return  Merger(streamSession: -1, startTimeMerge: false, endTimeMerge: false)
         
     }
     

@@ -18,6 +18,7 @@
 		7475EE9A2C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */; };
 		7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */; };
 		7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEAC2C96197D00C66D4F /* StreamSession.swift */; };
+		7475EEAF2C98172E00C66D4F /* Merger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEAE2C98172E00C66D4F /* Merger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7475EE992C95B5BD00C66D4F /* RadioSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStreamingFunctions.swift; sourceTree = "<group>"; };
 		7475EEAC2C96197D00C66D4F /* StreamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSession.swift; sourceTree = "<group>"; };
+		7475EEAE2C98172E00C66D4F /* Merger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				7475EEAC2C96197D00C66D4F /* StreamSession.swift */,
+				7475EEAE2C98172E00C66D4F /* Merger.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */,
+				7475EEAF2C98172E00C66D4F /* Merger.swift in Sources */,
 				7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */,
 				7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */,
 				7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */,

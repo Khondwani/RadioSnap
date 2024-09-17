@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE762C95B5BC00C66D4F /* AppDelegate.swift */; };
 		7475EE792C95B5BC00C66D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */; };
-		7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EE7A2C95B5BC00C66D4F /* ViewController.swift */; };
 		7475EE7E2C95B5BC00C66D4F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE7D2C95B5BC00C66D4F /* Base */; };
 		7475EE802C95B5BD00C66D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */; };
 		7475EE832C95B5BD00C66D4F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7475EE822C95B5BD00C66D4F /* Base */; };
@@ -17,6 +16,10 @@
 		7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */; };
 		7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEAC2C96197D00C66D4F /* StreamSession.swift */; };
 		7475EEAF2C98172E00C66D4F /* Merger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEAE2C98172E00C66D4F /* Merger.swift */; };
+		7475EEB42C98B28900C66D4F /* AddStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEB32C98B28900C66D4F /* AddStreamViewController.swift */; };
+		7475EEB62C98B29E00C66D4F /* StreamSatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475EEB52C98B29E00C66D4F /* StreamSatisticsViewController.swift */; };
+		74C0D0BC2C9990A600CB6D7E /* StreamStatisticsSwiftViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C0D0BB2C9990A600CB6D7E /* StreamStatisticsSwiftViewUI.swift */; };
+		74C0D0BE2C999C8700CB6D7E /* Streams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C0D0BD2C999C8700CB6D7E /* Streams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +36,6 @@
 		7475EE732C95B5BC00C66D4F /* RadioSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7475EE762C95B5BC00C66D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7475EE7A2C95B5BC00C66D4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7475EE7D2C95B5BC00C66D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7475EE822C95B5BD00C66D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,10 @@
 		7475EEA72C96190000C66D4F /* RadioStreamingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStreamingFunctions.swift; sourceTree = "<group>"; };
 		7475EEAC2C96197D00C66D4F /* StreamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSession.swift; sourceTree = "<group>"; };
 		7475EEAE2C98172E00C66D4F /* Merger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.swift; sourceTree = "<group>"; };
+		7475EEB32C98B28900C66D4F /* AddStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStreamViewController.swift; sourceTree = "<group>"; };
+		7475EEB52C98B29E00C66D4F /* StreamSatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSatisticsViewController.swift; sourceTree = "<group>"; };
+		74C0D0BB2C9990A600CB6D7E /* StreamStatisticsSwiftViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamStatisticsSwiftViewUI.swift; sourceTree = "<group>"; };
+		74C0D0BD2C999C8700CB6D7E /* Streams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +90,12 @@
 		7475EE752C95B5BC00C66D4F /* RadioSnap */ = {
 			isa = PBXGroup;
 			children = (
+				74C0D0BA2C99907E00CB6D7E /* swiftUI */,
+				7475EEB02C98AD5B00C66D4F /* ViewControllers */,
 				7475EEA92C96193800C66D4F /* models */,
 				7475EEA62C9618E000C66D4F /* utils */,
 				7475EE762C95B5BC00C66D4F /* AppDelegate.swift */,
 				7475EE782C95B5BC00C66D4F /* SceneDelegate.swift */,
-				7475EE7A2C95B5BC00C66D4F /* ViewController.swift */,
 				7475EE7C2C95B5BC00C66D4F /* Main.storyboard */,
 				7475EE7F2C95B5BD00C66D4F /* Assets.xcassets */,
 				7475EE812C95B5BD00C66D4F /* LaunchScreen.storyboard */,
@@ -118,8 +125,26 @@
 			children = (
 				7475EEAC2C96197D00C66D4F /* StreamSession.swift */,
 				7475EEAE2C98172E00C66D4F /* Merger.swift */,
+				74C0D0BD2C999C8700CB6D7E /* Streams.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		7475EEB02C98AD5B00C66D4F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7475EEB32C98B28900C66D4F /* AddStreamViewController.swift */,
+				7475EEB52C98B29E00C66D4F /* StreamSatisticsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		74C0D0BA2C99907E00CB6D7E /* swiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				74C0D0BB2C9990A600CB6D7E /* StreamStatisticsSwiftViewUI.swift */,
+			);
+			path = swiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,12 +248,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7475EE7B2C95B5BC00C66D4F /* ViewController.swift in Sources */,
+				7475EEB42C98B28900C66D4F /* AddStreamViewController.swift in Sources */,
 				7475EEAF2C98172E00C66D4F /* Merger.swift in Sources */,
 				7475EEAD2C96197D00C66D4F /* StreamSession.swift in Sources */,
+				74C0D0BC2C9990A600CB6D7E /* StreamStatisticsSwiftViewUI.swift in Sources */,
 				7475EE772C95B5BC00C66D4F /* AppDelegate.swift in Sources */,
 				7475EEA82C96190000C66D4F /* RadioStreamingFunctions.swift in Sources */,
 				7475EE792C95B5BC00C66D4F /* SceneDelegate.swift in Sources */,
+				74C0D0BE2C999C8700CB6D7E /* Streams.swift in Sources */,
+				7475EEB62C98B29E00C66D4F /* StreamSatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

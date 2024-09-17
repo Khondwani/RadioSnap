@@ -231,7 +231,7 @@ final class RadioSnapTests: XCTestCase {
         let expectedStreamSession = StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 3600, mergeCount: 1) // tells me
         // Act
         // we not testing adding to the array we testing merging on a value that already exists
-        let newExistingStreamSession = RadioStreamingFunctions.performMerge(from: newStreamSessionStartDate, and: newStreamSessionEndDate, with: (existingStreams["13/11/24"]! as [StreamSession])[0], decision: (0,true,false))
+        let newExistingStreamSession = RadioStreamingFunctions.performMerge(from: newStreamSessionStartDate, and: newStreamSessionEndDate, with: (existingStreams["13/11/24"]! as [StreamSession])[0], decision: Merger(streamSession: 0, startTimeMerge: true, endTimeMerge: false))
         
         XCTAssertEqual(newExistingStreamSession.duration, expectedStreamSession.duration, "The duration must be \(expectedStreamSession.duration), but was given \(newExistingStreamSession.duration)")
             

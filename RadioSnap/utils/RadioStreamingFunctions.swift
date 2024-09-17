@@ -37,8 +37,8 @@ class RadioStreamingFunctions {
         return duration.second!
     }
     
-    static func performMerge(from newStartDateTime: Date, and newEndDateTime: Date, with existingStreamSession: StreamSession, decision: (Int,Bool,Bool)) -> StreamSession {
-        if decision.1 == true && decision.2 == false { // we know startDateTime changes
+    static func performMerge(from newStartDateTime: Date, and newEndDateTime: Date, with existingStreamSession: StreamSession, decision: Merger) -> StreamSession {
+        if decision.startTimeMerge == true && decision.endTimeMerge == false { // we know startDateTime changes
             
             existingStreamSession.startDateTime = newStartDateTime
             existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
@@ -46,13 +46,13 @@ class RadioStreamingFunctions {
             
             return existingStreamSession
             
-        } else if decision.1 == false && decision.2 == true { //when endTime is the one that increases
+        } else if decision.startTimeMerge == false && decision.endTimeMerge == true { //when endTime is the one that increases
             existingStreamSession.endDateTime = newEndDateTime
             existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
             existingStreamSession.mergeCount += 1
             
             return existingStreamSession
-        } else if decision.1 == true && decision.2 == true { // bigger start and end time
+        } else if decision.startTimeMerge == true && decision.endTimeMerge == true { // bigger start and end time
             existingStreamSession.startDateTime = newStartDateTime
             existingStreamSession.endDateTime = newEndDateTime
             existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)

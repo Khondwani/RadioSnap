@@ -1,24 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AX3-nS-ghg">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Stream Statistics-->
+        <scene sceneID="0Io-v6-Pqm">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="60x-iw-yAp" customClass="StreamSatisticsViewController" customModule="RadioSnap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2BI-EA-LiQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="TMv-Vb-h2r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Stream Statistics" id="8qf-uZ-tp0">
+                        <imageReference key="image" image="chart.bar" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="chart.bar.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWB-AB-dHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="146" y="68"/>
+        </scene>
+        <!--Record Stream-->
+        <scene sceneID="GJY-4Y-IhW">
+            <objects>
+                <viewController id="Wo2-iW-oIB" customClass="AddStreamViewController" customModule="RadioSnap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BTe-FL-BIx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6g-Fv-sva">
+                                <rect key="frame" x="16" y="449" width="288" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qtR-QN-a6G"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1843137443" green="0.40392160420000001" blue="0.56862747670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Submit Stream Session" imagePadding="11">
+                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitSession:" destination="Wo2-iW-oIB" eventType="touchUpInside" id="5uv-bo-HSM"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wie-b5-n3f">
+                                <rect key="frame" x="46" y="20" width="227" height="150.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-ad-g2S">
+                                        <rect key="frame" x="53.5" y="0.0" width="120" height="112.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sNq-ad-g2S" secondAttribute="height" multiplier="115:108" id="bFp-x8-kIe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RadioSnap Streaming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zib-1s-WRO">
+                                        <rect key="frame" x="0.0" y="120.5" width="227" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VlY-oQ-m3P"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="rzf-An-Peb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="qCl-kj-AcR">
+                                <rect key="frame" x="15" y="197" width="288" height="221"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc0-Vn-0Y5">
+                                        <rect key="frame" x="67" y="0.0" width="154" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="sud-ds-nqS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="kCf-su-hc7">
+                                        <rect key="frame" x="0.0" y="47" width="288" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fE9-zz-QNY"/>
+                                        </constraints>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-MM-Aoe">
+                                        <rect key="frame" x="69" y="124" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="VYp-Wh-iyF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="bSQ-ut-puK">
+                                        <rect key="frame" x="0.0" y="171" width="288" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="r3V-Dq-V7f"/>
+                                        </constraints>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VrH-aa-iX2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VrH-aa-iX2" firstAttribute="top" secondItem="Wie-b5-n3f" secondAttribute="top" id="37f-sS-23b"/>
+                            <constraint firstItem="qCl-kj-AcR" firstAttribute="leading" secondItem="VrH-aa-iX2" secondAttribute="leading" constant="15" id="Fzp-iy-Fu1"/>
+                            <constraint firstItem="VrH-aa-iX2" firstAttribute="bottom" secondItem="k6g-Fv-sva" secondAttribute="bottom" constant="20" id="Lfm-CZ-R7P"/>
+                            <constraint firstItem="k6g-Fv-sva" firstAttribute="leading" secondItem="VrH-aa-iX2" secondAttribute="leading" constant="16" id="WYJ-L4-Lhg"/>
+                            <constraint firstItem="Wie-b5-n3f" firstAttribute="leading" secondItem="VrH-aa-iX2" secondAttribute="leading" constant="46" id="dmC-Gz-XCc"/>
+                            <constraint firstItem="qCl-kj-AcR" firstAttribute="top" secondItem="Wie-b5-n3f" secondAttribute="bottom" constant="26.5" id="g4B-sZ-MX1"/>
+                            <constraint firstItem="VrH-aa-iX2" firstAttribute="trailing" secondItem="k6g-Fv-sva" secondAttribute="trailing" constant="16" id="hN6-Zh-l49"/>
+                            <constraint firstItem="VrH-aa-iX2" firstAttribute="trailing" secondItem="Wie-b5-n3f" secondAttribute="trailing" constant="47" id="mEJ-2w-Lc1"/>
+                            <constraint firstItem="VrH-aa-iX2" firstAttribute="trailing" secondItem="qCl-kj-AcR" secondAttribute="trailing" constant="17" id="qSA-zn-hBT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Record Stream" id="NN0-ZO-hVy">
+                        <imageReference key="image" image="mic" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="mic.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="endDateTimePicker" destination="bSQ-ut-puK" id="Qmg-9P-a7G"/>
+                        <outlet property="startDateTimePicker" destination="kCf-su-hc7" id="ALp-uT-Zt7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5B6-0E-qRa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145.80152671755724" y="-610.56338028169012"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bcg-xv-9T4">
+            <objects>
+                <tabBarController id="AX3-nS-ghg" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Cd-gF-iqX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Wo2-iW-oIB" kind="relationship" relationship="viewControllers" id="mOx-yo-vGL"/>
+                        <segue destination="60x-iw-yAp" kind="relationship" relationship="viewControllers" id="Akx-dx-3za"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sC-V4-Qd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="-307"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart.bar" catalog="system" width="128" height="89"/>
+        <image name="chart.bar.fill" catalog="system" width="128" height="90"/>
+        <image name="logo" width="112.5" height="112.5"/>
+        <image name="mic" catalog="system" width="110" height="128"/>
+        <image name="mic.fill" catalog="system" width="110" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

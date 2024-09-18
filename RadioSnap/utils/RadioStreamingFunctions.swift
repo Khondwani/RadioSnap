@@ -49,28 +49,25 @@ class RadioStreamingFunctions {
     
     static func performMergeWithinMergedStreams(from exisitingMergeStreams: [StreamSession]) -> [StreamSession] {
         // we merge on that specific date in the array if there overlaps
-        // EDGE CASE: MERGE WITHIN THE SAME DICTIONARY
-        var newMergedStreams: [StreamSession] = []
-        var existingMergeStreamsTemp = exisitingMergeStreams
+        // EDGE CASE: MERGE WITHIN THE SAME DICTIONARY CLEANS UP THE CURRENT MERGE STREAM
         
-        for exisitingMergeStream in exisitingMergeStreams {
-            let removed = existingMergeStreamsTemp.removeFirst() // so that it doesnt merge with itself
-            // get compare results
-            let compareResult = compareDatesToSeeIfMergeIsReuired(newStartStreamSession: exisitingMergeStream.startDateTime, newEndStreamSession: exisitingMergeStream.endDateTime, existingStreamSessions: existingMergeStreamsTemp)
-            
-            if compareResult.index != -1 {
-                
-                newMergedStreams.append(performMerge(from: exisitingMergeStream.startDateTime, and: exisitingMergeStream.endDateTime, with: exisitingMergeStream, decision: compareResult))
-                
-            } else {
-                // No Merge Occured so merge Count should be 0
-                newMergedStreams.append(performMerge(from: exisitingMergeStream.startDateTime, and: exisitingMergeStream.endDateTime, with: exisitingMergeStream, decision: compareResult))
-            }
-            
-            existingMergeStreamsTemp.append(removed)
-        }
-        
-        return newMergedStreams
+        let sortedMergedStreams = exisitingMergeStreams.sorted {$0.startDateTime < $1.startDateTime }
+           var newMergedStreams: [StreamSession] = []
+           
+           for stream in sortedMergedStreams {
+               if newMergedStreams.isEmpty || newMergedStreams.last!.endDateTime < stream.startDateTime {
+                   // NO MERGE SO JUST ADD 
+                   newMergedStreams.append(stream)
+               } else {
+                   // START TIME OR ENDTIME IS UPDATED BY THE SMALLEST FOR START TIME AND THE BIGGEST FOR ENDTIME
+                   // Merge the existing interval into the new one, adjusting the range
+                   newMergedStreams[newMergedStreams.count - 1].startDateTime = min(newMergedStreams.last!.startDateTime, stream.startDateTime)
+                   
+                   newMergedStreams[newMergedStreams.count - 1].endDateTime = max(newMergedStreams.last!.endDateTime, stream.endDateTime)
+               }
+           }
+           
+           return newMergedStreams
     }
     static func performMerge(from newStartDateTime: Date, and newEndDateTime: Date, with existingStreamSession: StreamSession, decision: Merger) -> StreamSession {
         if decision.startTimeMerge == true && decision.endTimeMerge == false { // we know startDateTime changes
@@ -87,16 +84,14 @@ class RadioStreamingFunctions {
             let newMergedStreamSession = StreamSession(startDateTime: newStartDateTime, endDateTime: newEndDateTime, duration: getDurationBetweenDates(from: newStartDateTime, and: newEndDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
             return newMergedStreamSession
             
+        } else if decision.startTimeMerge == false && decision.endTimeMerge == false && decision.index != -1 {
+            let newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
+            return newMergedStreamSession
         } else {
-            // The new times fall in between the times that already exist so it does count as an overlap and merge
-            var newMergedStreamSession: StreamSession? = nil
-            if decision.index == -1 { // this is when the perform within merge happens.
-                newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount, streamName: existingStreamSession.streamName)
-            } else {
-                newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
-            }
-            
-            return newMergedStreamSession!
+            // where the index = -1 no merge happened
+            let newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount, streamName: existingStreamSession.streamName)
+
+            return newMergedStreamSession
         }
     }
 //    
@@ -163,7 +158,7 @@ class RadioStreamingFunctions {
                 return  Merger(streamSession: index, startTimeMerge: true, endTimeMerge: true)
             }
         }
-        
+        // NO MERGE HAPPENED
         return  Merger(streamSession: -1, startTimeMerge: false, endTimeMerge: false)
         
     }

@@ -44,11 +44,18 @@ extension AddStreamViewController {
             
             // get the key
             let keyForDict = RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStream.startDateTime)
+            
             // Add to stream & to mergedStreams
             
             Streams.sharedInstance.addNewStreamSession(key: keyForDict, value: newStream)
             
             Streams.sharedInstance.addToMergedStreamSessions(key: keyForDict, value: newStream)
+            
+            // Add the array of keys
+            if !Streams.sharedInstance.arrayOfKeys.contains(keyForDict) {
+                Streams.sharedInstance.arrayOfKeys.append(keyForDict)
+            }
+            
             
         } else {
             showAlertDialog(title: "Oops!", message: "Sorry but you need to atleast have 1 minute of streaming time to submit.")

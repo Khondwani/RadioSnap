@@ -14,6 +14,9 @@ class Streams: ObservableObject, Identifiable {
     @Published var streams: [String:[StreamSession]] = [:] // if anything changes in it an update occors
     
     @Published var mergedStreams: [String:[StreamSession]] = [:] // only for merges that is what this will keep
+    
+    @Published var arrayOfKeys:[String] = [] // when displaying the dates on the charts need to loop through this array. Did try changing the dictionary to an array of keys but compiler issues.
+    
     // pass by reference happens when you pass a class instance!!! This made me get bugs
     // adding inout causes a copy to be passed instead!! which fixed my bug
     func addNewStreamSession(key dictKey: String, value newStream:  StreamSession) {

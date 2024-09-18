@@ -55,7 +55,8 @@ extension AddStreamViewController {
             if !Streams.sharedInstance.arrayOfKeys.contains(keyForDict) {
                 Streams.sharedInstance.arrayOfKeys.append(keyForDict)
             }
-            
+          
+            showToast(message: "💃🏽 You have successfully submitted a session! 🕺🏾")
             
         } else {
             showAlertDialog(title: "Oops!", message: "Sorry but you need to atleast have 1 minute of streaming time to submit.")
@@ -95,5 +96,26 @@ extension AddStreamViewController {
         let alertDialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertDialog.addAction(UIAlertAction(title: "Ok", style: .cancel))
         self.present(alertDialog, animated: true)
+    }
+    
+    func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 16)) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width * 0.10 , y: self.view.frame.size.height * 0.7, width: self.view.frame.size.width * 0.8, height: 55))
+      
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        toastLabel.numberOfLines = 2
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

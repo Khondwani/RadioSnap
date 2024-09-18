@@ -8,7 +8,8 @@
 import UIKit
 
 //Observerable Information // Makes it universably accessible
-let streamObsverable: Streams = Streams()
+
+//let mergedStreamObsverable: MergedStreams = MergedStreams()
 
 // MARK: OUTLETS
 class AddStreamViewController: UIViewController {
@@ -17,7 +18,7 @@ class AddStreamViewController: UIViewController {
     @IBOutlet weak var endDateTimePicker: UIDatePicker!
     
     let HOURS_24_IN_SECONDS = 86400
-    
+    var submissionCount = 0 // Will be used to name the streams
     
 }
 
@@ -26,7 +27,7 @@ class AddStreamViewController: UIViewController {
 extension AddStreamViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("We create our Singleton here! Since it only loads once!")
+       
     }
 }
 
@@ -35,9 +36,25 @@ extension AddStreamViewController {
     @IBAction func submitSession(_ sender: Any) {
         
         //TODO: Functionality to check if submission is more than 24hrs if so Alert them.
+        if !isStreamDurationZero() { // Tells me they are the same
+            
+            submissionCount += 1 // update the submission count
+            // Struct passes by copy Class passes by reference (Thus your bug earlier)
+            let newStream = StreamSession(startDateTime: startDateTimePicker.date, endDateTime: endDateTimePicker.date, duration: RadioStreamingFunctions.getDurationBetweenDates(from: startDateTimePicker.date, and: endDateTimePicker.date), streamName: "Stream \(submissionCount)")
+            
+            // get the key
+            let keyForDict = RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: newStream.startDateTime)
+            // Add to stream & to mergedStreams
+            
+            Streams.sharedInstance.addNewStreamSession(key: keyForDict, value: newStream)
+            
+            Streams.sharedInstance.addToMergedStreamSessions(key: keyForDict, value: newStream)
+            
+        } else {
+            showAlertDialog(title: "Oops!", message: "Sorry but you need to atleast have 1 minute of streaming time to submit.")
+        }
         
-//        let keyForDict = RadioStreamingFunctions.getSessionDateKey(dictKeyFrom: <#T##Date#>)
-//        streamObsverable.addNewStreamSession(key: <#T##String#>, value: <#T##StreamSession#>)
+//
 //        streamObsverable.addToMergedStreamSessions(key: <#T##String#>, value: <#T##StreamSession#>)
         //TODO: Perfrom addition to dictionaries
         
@@ -60,7 +77,7 @@ extension AddStreamViewController {
     }
     
     func isStreamDurationZero() -> Bool {
-        if RadioStreamingFunctions.getDurationBetweenDates(from: startDateTimePicker.date, and: endDateTimePicker.date) == 0 {
+        if RadioStreamingFunctions.getDurationBetweenDates(from: startDateTimePicker.date, and: endDateTimePicker.date) <= 0 {
             return true
         } else {
             return false

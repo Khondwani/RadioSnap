@@ -15,7 +15,7 @@ final class RadioSnapTests: XCTestCase {
     
     override func setUp() {
         
-        existingStreams = ["13/11/24":[StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:30:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 1800, mergeCount: 0)]]
+        existingStreams = ["13/11/24":[StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:30:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 1800, mergeCount: 0, streamName: "Stream 1")]]
     }
     
     func testFindDate_WhenExistingStreamIsEmpty_ShouldReturnEmptyArray() {
@@ -203,7 +203,7 @@ final class RadioSnapTests: XCTestCase {
         let newStreamSessionStartDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 13:00:00")
         let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:31:00")
         
-        existingStreams["13/11/24"]?.append(StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:30:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 15:00:00"), duration: 0))
+        existingStreams["13/11/24"]?.append(StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 14:30:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 15:00:00"), duration: 0, streamName: "Stream 1"))
         
         let expect = Merger(streamSession:1,startTimeMerge:true,endTimeMerge:false)
      
@@ -228,7 +228,7 @@ final class RadioSnapTests: XCTestCase {
         let newStreamSessionEndDate = RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:40:00")
         
         
-        let expectedStreamSession = StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 3600, mergeCount: 1) // tells me
+        let expectedStreamSession = StreamSession(startDateTime: RadioStreamingFunctions.convertStringToDate(from: "13/11/24 12:00:00"), endDateTime: RadioStreamingFunctions.convertStringToDate(from:  "13/11/24 13:00:00"), duration: 3600, mergeCount: 1, streamName: "Stream 1") // tells me
         // Act
         // we not testing adding to the array we testing merging on a value that already exists
         let newExistingStreamSession = RadioStreamingFunctions.performMerge(from: newStreamSessionStartDate, and: newStreamSessionEndDate, with: (existingStreams["13/11/24"]! as [StreamSession])[0], decision: Merger(streamSession: 0, startTimeMerge: true, endTimeMerge: false))

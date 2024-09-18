@@ -17,6 +17,10 @@ class RadioStreamingFunctions {
         }
     }
     
+    static func secondsToFormatTimeRange(_ seconds: Int) -> String {
+        return "\(seconds / 3600) hrs, \((seconds % 3600) / 60) mins, \((seconds % 3600) % 60)s"
+    }
+    
     static func getSessionDateKey(dictKeyFrom startDate: Date) -> String {
         
         let streamKeyDateFormatter = DateFormatter()
@@ -32,42 +36,69 @@ class RadioStreamingFunctions {
         return dateFormatter.date(from: stringDate)!
     }
     
+    static func convertDateToString(from date: Date) -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "HH:mm"
+           return dateFormatter.string(from: date)
+    }
+    
     static func getDurationBetweenDates(from startDate: Date, and endDate: Date) -> Int {
         let duration = Calendar.current.dateComponents([.second], from: startDate, to: endDate)
         return duration.second!
     }
     
+    static func performMergeWithinMergedStreams(from exisitingMergeStreams: [StreamSession]) -> [StreamSession] {
+        // we merge on that specific date in the array if there overlaps
+        // EDGE CASE: MERGE WITHIN THE SAME DICTIONARY
+        var newMergedStreams: [StreamSession] = []
+        var existingMergeStreamsTemp = exisitingMergeStreams
+        
+        for exisitingMergeStream in exisitingMergeStreams {
+            let removed = existingMergeStreamsTemp.removeFirst() // so that it doesnt merge with itself
+            // get compare results
+            let compareResult = compareDatesToSeeIfMergeIsReuired(newStartStreamSession: exisitingMergeStream.startDateTime, newEndStreamSession: exisitingMergeStream.endDateTime, existingStreamSessions: existingMergeStreamsTemp)
+            
+            if compareResult.index != -1 {
+                
+                newMergedStreams.append(performMerge(from: exisitingMergeStream.startDateTime, and: exisitingMergeStream.endDateTime, with: exisitingMergeStream, decision: compareResult))
+                
+            } else {
+                // No Merge Occured so merge Count should be 0
+                newMergedStreams.append(performMerge(from: exisitingMergeStream.startDateTime, and: exisitingMergeStream.endDateTime, with: exisitingMergeStream, decision: compareResult))
+            }
+            
+            existingMergeStreamsTemp.append(removed)
+        }
+        
+        return newMergedStreams
+    }
     static func performMerge(from newStartDateTime: Date, and newEndDateTime: Date, with existingStreamSession: StreamSession, decision: Merger) -> StreamSession {
         if decision.startTimeMerge == true && decision.endTimeMerge == false { // we know startDateTime changes
+            let newMergedStreamSession = StreamSession(startDateTime: newStartDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: newStartDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
             
-            existingStreamSession.startDateTime = newStartDateTime
-            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
-            existingStreamSession.mergeCount += 1
-            
-            return existingStreamSession
+            return newMergedStreamSession
             
         } else if decision.startTimeMerge == false && decision.endTimeMerge == true { //when endTime is the one that increases
-            existingStreamSession.endDateTime = newEndDateTime
-            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
-            existingStreamSession.mergeCount += 1
+            let newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: newEndDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: newEndDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
             
-            return existingStreamSession
+            return newMergedStreamSession
+            
         } else if decision.startTimeMerge == true && decision.endTimeMerge == true { // bigger start and end time
-            existingStreamSession.startDateTime = newStartDateTime
-            existingStreamSession.endDateTime = newEndDateTime
-            existingStreamSession.duration = getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime)
-            existingStreamSession.mergeCount += 1
-            return existingStreamSession
+            let newMergedStreamSession = StreamSession(startDateTime: newStartDateTime, endDateTime: newEndDateTime, duration: getDurationBetweenDates(from: newStartDateTime, and: newEndDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
+            return newMergedStreamSession
+            
         } else {
             // The new times fall in between the times that already exist so it does count as an overlap and merge
-            existingStreamSession.mergeCount += 1
-            return existingStreamSession
+            var newMergedStreamSession: StreamSession? = nil
+            if decision.index == -1 { // this is when the perform within merge happens.
+                newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount, streamName: existingStreamSession.streamName)
+            } else {
+                newMergedStreamSession = StreamSession(startDateTime: existingStreamSession.startDateTime, endDateTime: existingStreamSession.endDateTime, duration: getDurationBetweenDates(from: existingStreamSession.startDateTime, and: existingStreamSession.endDateTime), mergeCount: existingStreamSession.mergeCount + 1, streamName: existingStreamSession.streamName)
+            }
+            
+            return newMergedStreamSession!
         }
     }
-//    static func addToDictNewKeyAndNewStreamSession(currenDict: [String:[StreamSession]], newDictKey: String, newStreamSession: StreamSession) -> [String:[StreamSession]] {
-//        
-//        return [:]
-//    }
 //    
 //    static func addToStreamSessionArray() {
 //        

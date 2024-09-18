@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Merger {
+struct Merger {
     var index:Int
     var startTimeMerge:Bool
     var endTimeMerge:Bool
